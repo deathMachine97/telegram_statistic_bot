@@ -1,7 +1,7 @@
 from typing import List, NamedTuple, Optional, Dict, List, Tuple
 from abc import ABC, abstractmethod
 from threading import Lock, Thread
-from interfaces.statistic import Statistics, StatisticsValue
+from data_structures import tuple_classes
 
 
 class Database(ABC):
@@ -20,12 +20,12 @@ class Database(ABC):
 
     """ Создает статистику """
     @abstractmethod
-    def create_statistics(self, data: Statistics):
+    def create_statistics(self, data: tuple_classes.Statistics):
         pass
 
     """ Обновляет параметры статистики """
     @abstractmethod
-    def update_statistics(self, statistic_id: str, new_value: Statistics):
+    def update_statistics(self, statistic_id: str, new_value: tuple_classes.Statistics):
         pass
 
     """ Удаляет статистику """
@@ -50,11 +50,10 @@ class Database(ABC):
 
     """Получает последние записи статистики"""
     @abstractmethod
-    def get_last_notes_of_statistics(self, statistics_id: str, limit=30) -> List[StatisticsValue]:
+    def get_last_notes_of_statistics(self, statistics_id: str, limit=30) -> List[tuple_classes.StatisticsValue]:
         pass
 
     """ Получает записи статистики """
     @abstractmethod
-    def get_notes_of_statistics(self, statistics_id: str, page=0) -> List[StatisticsValue]:
+    def get_notes_of_statistics(self, statistics_id: str, page=0) -> List[tuple_classes.StatisticsValue]:
         pass
-

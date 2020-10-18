@@ -4,9 +4,8 @@ import datetime as dt
 from abc import ABC, abstractmethod
 
 from typing import Dict, List, NamedTuple
-from interfaces.statistic import StatisticData, Statistic
+from interfaces.statistic import Statistics, StatisticsValue
 from interfaces.database import Database
-from interfaces.statistic import StatisticData
 
 class Notification(ABC):
     @abstractmethod

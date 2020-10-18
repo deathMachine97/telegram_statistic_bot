@@ -2,25 +2,28 @@ from typing import NamedTuple, List
 from data_structures.enum_classes import NotificationMode
 
 
+class Notification(NamedTuple):
+    _id: str
+    time: str
+    days: int
+
+
 class StatisticsValue(NamedTuple):
-    id: str
+    _id: str
     value: str
     date: str
 
 
-class Notification(NamedTuple):
-    id: str
-    time: str
-    days: int
-
-class NotificationCollection(NamedTuple):
-    time: List[str]
+class Notifications(NamedTuple):
+    values: List[Notification]
     mode: NotificationMode
 
 
 class Statistics(NamedTuple):
-    id: str
-    notification: NotificationCollection
+    _id: str
+    name: str
+    notification: list(Notification)
+    notification_mode: NotificationMode
     user_id: int
     notify_text: str
     values: List[StatisticsValue]
